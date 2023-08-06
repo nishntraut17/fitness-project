@@ -8,8 +8,6 @@ import { exerciseOptions, fetchData } from '../utils/fetchData';
 import ExerciseCard from './ExerciseCard';
 import Loader from './Loader';
 
-// Exercises and setExercises ki zarurat nhi hai and bodyPart ki bhi
-
 const Exercises = () => {
   const dispatch = useDispatch();
   const exercises = useSelector((state) => state.exercises.exercises);
@@ -18,7 +16,6 @@ const Exercises = () => {
   console.log(bodyPart);
 
   const [currentPage, setCurrentPage] = useState(1);
-  const [exercisesPerPage] = useState(6);
 
   useEffect(() => {
     const fetchExercisesData = async () => {
@@ -37,6 +34,7 @@ const Exercises = () => {
   }, [bodyPart]);
 
   // Pagination
+  const exercisesPerPage = 6;
   const indexOfLastExercise = currentPage * exercisesPerPage;
   const indexOfFirstExercise = indexOfLastExercise - exercisesPerPage;
   const currentExercises = exercises.slice(indexOfFirstExercise, indexOfLastExercise);
@@ -58,7 +56,7 @@ const Exercises = () => {
         ))}
       </Stack>
       <Stack sx={{ mt: { lg: '114px', xs: '70px' } }} alignItems="center">
-        {exercises.length > 9 && (
+        {exercises.length > 6 && (
           <Pagination
             color="standard"
             shape="rounded"

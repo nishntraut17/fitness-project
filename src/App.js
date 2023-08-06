@@ -9,6 +9,7 @@ import ExerciseDetail from './pages/ExerciseDetail';
 import Home from './pages/Home';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+// import Exercises from './components/Exercises';
 
 const App = () => (
   <Provider store={store}> {/* Wrap the app with the Provider and pass the store */}
@@ -17,6 +18,7 @@ const App = () => (
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/exercise/:id" element={<ExerciseDetail />} />
+        {/* <Route path="/exercises" element={<Exercises />} /> */}
       </Routes>
       <Footer />
     </Box>
